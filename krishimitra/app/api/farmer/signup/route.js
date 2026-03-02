@@ -7,7 +7,7 @@ export async function POST(request) {
     await connectDB();
     console.log("✅ Connected to MongoDB");
 
-    const { name, email, aadhar, number, location, soiltype, password } = await request.json();
+    const { name, email, aadhar, number, location, soiltype, password, confirmPassword: _ } = await request.json();
 
     if (!name || !password || !location || !number || !soiltype || !aadhar || !email) {
       return NextResponse.json(
